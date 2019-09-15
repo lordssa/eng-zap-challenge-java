@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "api",
+      "type": "zap.api.config.ApiProperties",
+      "sourceType": "zap.api.config.ApiProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "api.json-url",
+      "type": "java.lang.String",
+      "sourceType": "zap.api.config.ApiProperties"
+    }
+  ],
+  "hints": []
+}
