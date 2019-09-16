@@ -30,9 +30,9 @@ There is two modes, the first one is acessing the service by url
 
 ```
 *Example*
-http://localhost:8080/api/listarImoveisZap
+http://localhost:8080/api/listarImoveisZap?pageNumber=1&pageSize=20
 ```
-Second option is through Swagger. On the section building-resource
+Second option is through Swagger.
 ```
 *Example*
 On the section building-resource, select method GET "/api/listarImoveisZap" and click "try it out" button, fill the required parameters, click in execute button and that's it!

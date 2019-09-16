@@ -14,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import zap.api.config.ApiProperties;
 import zap.api.modelView.InventaryView;
+import zap.api.service.VivaRealService;
 import zap.api.service.ZapService;
 
 @RestController
@@ -26,12 +27,26 @@ public class BuildingResource {
 	@Autowired
 	ZapService _zapService;
 	
+	@Autowired
+	VivaRealService _vivaRealService;
+	
 	@GetMapping("/listarImoveisZap")
 	@ApiOperation(value="Retorna a lista de imóveis do portal Zap")
 	public InventaryView ListarImoveisZap(@RequestParam(value="pageNumber", defaultValue="1") String pageNumber,
 										   @RequestParam(value="pageSize", defaultValue="20") String pageSize){
 		try {
 			return _zapService.getListaImoveis(Integer.parseInt(pageNumber), Integer.parseInt(pageSize));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	@GetMapping("/listarImoveisVivaReal")
+	@ApiOperation(value="Retorna a lista de imóveis do portal Viva Real")
+	public InventaryView ListarImoveisVivaReal(@RequestParam(value="pageNumber", defaultValue="1") String pageNumber,
+										   @RequestParam(value="pageSize", defaultValue="20") String pageSize){
+		try {
+			return _vivaRealService.getListaImoveis(Integer.parseInt(pageNumber), Integer.parseInt(pageSize));
 		} catch (Exception e) {
 			return null;
 		}

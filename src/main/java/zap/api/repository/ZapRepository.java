@@ -17,7 +17,7 @@ public class ZapRepository extends DataSource {
 	static final double MIN_VALOR_ALUGUEL = 3500;
 	
 		
-	protected boolean isInBoundedBoxZap(Location location) {
+	private boolean isInBoundedBoxZap(Location location) {
 		
 		if(location.getLat() >= MIN_LATITUDE 
 		   && location.getLat() <= MAX_LATITUDE
@@ -32,11 +32,7 @@ public class ZapRepository extends DataSource {
 	public List<Building> getListaImoveis() throws Exception {
 		List<Building> listBuildingsZap = new ArrayList<Building>();
 
-	/*    
-	    Ele apenas é elegível pro portal Viva Real:
-	        Quando for aluguel e no máximo o valor for de R$ 4.000,00.
-	        Quando for venda e no máximo o valor for de R$ 700.000,00.
-*/
+	
 		double minValorVenda = MIN_VALOR_VENDA;
 		for (Building b : getSource()) {
 			if (b.getAddress() != null && b.getAddress().getGeoLocation() != null
@@ -72,6 +68,5 @@ public class ZapRepository extends DataSource {
 		return listBuildingsZap;
 
 	}
-
 
 }
